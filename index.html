@@ -5,142 +5,127 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>자개 시계 재료 스토어</title>
   <style>
-    :root{--bg:#f7f7f8;--card:#fff;--accent:#0f766e;--muted:#6b7280}
-    *{box-sizing:border-box}
-    body{margin:0;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;background:var(--bg);color:#111}
-    header{background:linear-gradient(90deg,#fff 0,#fff 60%,rgba(15,118,110,0.05) 100%);padding:28px 20px;border-bottom:1px solid #eee}
-    .container{max-width:1100px;margin:0 auto;padding:28px 16px}
-    .brand{display:flex;gap:16px;align-items:center}
-    .brand .logo{width:72px;height:72px;border-radius:12px;background:url('/mnt/data/d0db4984-f213-42de-b9e2-d85d382bae42.png') center/cover no-repeat;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
-    .brand h1{font-size:20px;margin:0}
-    .tag{color:var(--muted);font-size:13px}
+    :root {
+      --bg: #f7f7f8;
+      --card-bg: #fff;
+      --primary: #026550;
+      --text: #333;
+      --subtext: #666;
+      --radius: 12px;
+      --shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Noto Sans KR', sans-serif; }
+    body { background: var(--bg); color: var(--text); }
+    a { text-decoration:none; color: var(--primary); }
+    header { padding:20px; text-align:center; background:#fff; box-shadow:var(--shadow); }
+    header h1 { font-size:24px; margin-bottom:5px; }
+    header p { font-size:14px; color:var(--subtext); }
 
-    .lead{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
-    .lead p{margin:0;color:var(--muted)}
+    .container { width:95%; max-width:1200px; margin:40px auto; }
 
-    /* product grid */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:28px}
-    .card{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 6px 18px rgba(16,24,40,0.06);display:flex;flex-direction:column}
-    .thumb{height:200px;background:#eee center/cover no-repeat}
-    .card .inner{padding:14px;flex:1;display:flex;flex-direction:column}
-    .name{font-weight:600;margin:0 0 6px 0}
-    .desc{font-size:13px;color:var(--muted);margin:0 0 10px 0;flex:0}
-    .price{font-size:18px;color:var(--accent);font-weight:700;margin-top:auto}
-    .actions{display:flex;gap:8px;margin-top:12px}
-    .btn{flex:1;padding:10px 12px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
-    .btn-contact{background:var(--accent);color:#fff}
-    .btn-view{background:#f3f4f6;color:#111}
+    h2 { font-size:20px; margin-bottom:15px; }
 
-    footer{padding:28px 0;color:var(--muted);font-size:13px;text-align:center}
+    .gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:20px; }
+    .card { background:var(--card-bg); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; }
+    .card img { width:100%; display:block; }
+    .card-content { padding:15px; flex:1; display:flex; flex-direction:column; justify-content:space-between; }
+    .card-content h3 { font-size:16px; margin-bottom:8px; }
+    .card-content p { font-size:13px; color:var(--subtext); margin-bottom:12px; flex:1; }
+    .price { font-weight:bold; margin-bottom:12px; }
+    .buttons { display:flex; gap:10px; }
+    .buttons a { flex:1; text-align:center; padding:8px 0; border-radius:8px; font-weight:bold; font-size:14px; }
+    .btn-detail { background:#eee; color:var(--text); }
+    .btn-contact { background:var(--primary); color:#fff; }
 
-    /* responsive tweaks */
-    @media (max-width:600px){.brand{gap:10px}.brand h1{font-size:16px}}
+    .contact-info { text-align:right; font-size:14px; margin-bottom:40px; }
+    .contact-info a { margin-left:10px; }
+
+    .section { margin-bottom:60px; }
+    .section p { margin-top:10px; font-size:14px; color:var(--subtext); line-height:1.6; }
+
+    footer { padding:20px; text-align:center; font-size:12px; color:var(--subtext); }
   </style>
 </head>
 <body>
   <header>
-    <div class="container">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <h1>자개 시계 재료</h1>
-          <div class="tag">30년 장인의 정수 — 자개 시계판 · 자개 파우더 · 자개 부재료 전문</div>
-        </div>
-      </div>
-    </div>
+    <h1>자개 시계 재료</h1>
+    <p>30년 장인의 정수 — 자개 시계판 · 자개 파우더 · 자개 부재료 전문</p>
   </header>
 
-  <main class="container">
-    <div class="lead">
-      <div>
-        <h2 style="margin:0 0 6px 0">상품 갤러리</h2>
-        <p class="tag">심플한 갤러리 레이아웃 — 관심 상품은 연락하기로 바로 문의하세요.</p>
+  <div class="container">
+
+    <div class="contact-info">
+      연락처: <a href="tel:01099999999">010-9999-9999</a> · 이메일: <a href="mailto:kkhwa76@nate.com">kkhwa76@nate.com</a>
+    </div>
+
+    <section class="section">
+      <h2>상품 갤러리</h2>
+      <p>심플한 갤러리 레이아웃 — 관심 상품은 '상세보기' 후 '연락하기'로 바로 문의하세요.</p>
+
+      <div class="gallery">
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200.png?text=자개+시계판+(대)" alt="자개 시계판">
+          <div class="card-content">
+            <h3>자개 시계판 (대)</h3>
+            <p>30년 장인이 가공한 고급 자개 시계판.</p>
+            <div class="price">원</div>
+            <div class="buttons">
+              <a href="#" class="btn-detail">상세보기</a>
+              <a href="tel:01099999999" class="btn-contact">연락하기</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200.png?text=자개+파우더+White+(50g)" alt="자개 파우더 White">
+          <div class="card-content">
+            <h3>자개 파우더 White (50g)</h3>
+            <p>공예용 미세 파우더. 혼합·코팅용으로 적합합니다.</p>
+            <div class="price">원</div>
+            <div class="buttons">
+              <a href="#" class="btn-detail">상세보기</a>
+              <a href="tel:01099999999" class="btn-contact">연락하기</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200.png?text=자개+파우더+Yellow+(50g)" alt="자개 파우더 Yellow">
+          <div class="card-content">
+            <h3>자개 파우더 Yellow (50g)</h3>
+            <p>공예용 미세 파우더. 혼합·코팅용으로 적합합니다.</p>
+            <div class="price">원</div>
+            <div class="buttons">
+              <a href="#" class="btn-detail">상세보기</a>
+              <a href="tel:01099999999" class="btn-contact">연락하기</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200.png?text=자개+조각+재료+(믹스)" alt="자개 조각 재료">
+          <div class="card-content">
+            <h3>자개 조각 재료 (믹스)</h3>
+            <p>DIY용 다양한 크기의 자개 조각 세트. 소량 포장.</p>
+            <div class="price">원</div>
+            <div class="buttons">
+              <a href="#" class="btn-detail">상세보기</a>
+              <a href="tel:01099999999" class="btn-contact">연락하기</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="tag">연락처: <strong><a href="tel:01099999999">010-9999-9999</a></strong> · 이메일: <a href="mailto:kkhwa76@nate.com">kkhwa76@nate.com</a></div>
-    </div>
-
-    <div class="grid" id="productGrid">
-      <!-- 제품 카드 (복사해서 사용) -->
-      <article class="card">
-        <div class="thumb" style="background-image:url('/c1.jpg')" role="img" aria-label="자개 시계판"></div>
-        <div class="inner">
-          <h3 class="name">자개 시계판 (대)</h3>
-          <p class="desc">30년 장인이 가공한 고급 자개 시계판.</p>
-          <div class="price">       원</div>
-          <div class="actions">
-            <button class="btn btn-view" onclick="viewDetail('자개 시계판 (대)')">상세보기</button>
-            <button class="btn btn-contact" onclick="contactSeller('자개 시계판 (대)')">연락하기</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="thumb" style="background-image:url('/Powder1.JPG')" role="img" aria-label="자개 파우더"></div>
-        <div class="inner">
-          <h3 class="name">자개 파우더 White (50g)</h3>
-          <p class="desc">공예용 미세 파우더. 혼합·코팅용으로 적합합니다.</p>
-          <div class="price">     원</div>
-          <div class="actions">
-           <button class="btn btn-view" onclick="viewDetail('자개 파우더 (50g)')">상세보기</button>
-            <button class="btn btn-contact" onclick="contactSeller('자개 파우더 (50g)')">연락하기</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="thumb" style="background-image:url(/Powder2.JPG)" role="img" aria-label="자개 파우더"></div>
-        <div class="inner">
-          <h3 class="name">자개 파우더 Yellow (50g)</h3>
-          <p class="desc">공예용 미세 파우더. 혼합·코팅용으로 적합합니다.</p>
-          <div class="price">      원</div>
-          <div class="actions">
-            <button class="btn btn-view" onclick="viewDetail('자개 파우더 (50g)')">상세보기</button>
-            <button class="btn btn-contact" onclick="contactSeller('자개 파우더 (50g)')">연락하기</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="thumb" style="background-image:url('/l2.jpg')" role="img" aria-label="자개 조각 재료"></div>
-        <div class="inner">
-          <h3 class="name">자개 조각 재료 (믹스)</h3>
-          <p class="desc">DIY용 다양한 크기의 자개 조각 세트. 소량 포장.</p>
-          <div class="price">       원</div>
-          <div class="actions">
-            <button class="btn btn-view" onclick="viewDetail('자개 조각 재료 (믹스)')">상세보기</button>
-            <button class="btn btn-contact" onclick="contactSeller('자개 조각 재료 (믹스)')">연락하기</button>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <section style="margin-top:28px;background:linear-gradient(180deg,#fff,transparent);padding:18px;border-radius:12px">
-      <h3 style="margin:0 0 6px 0">장인 소개</h3>
-      <p class="tag" style="margin:0">30년 자개 장인의 정수 — 자개 가공, 색맞춤, 맞춤 주문 제작 가능. 대량 공급 및 도매 문의 환영.</p>
     </section>
 
-  </main>
+    <section class="section">
+      <h2>장인 소개</h2>
+      <p>30년 자개 장인의 정수 — 자개 가공, 색맞춤, 맞춤 주문 제작 가능. 대량 공급 및 도매 문의 환영.</p>
+    </section>
+
+  </div>
 
   <footer>
-    <div class="container">© 2025 자개 스토어 · 연락: 010-9999-9999</div>
+    © 2025 자개 시계 재료. All Rights Reserved.
   </footer>
-
-  <script>
-    function contactSeller(item){
-      const phone = '010-9999-9999';
-      const mail = 'kkhwa76@nate.com';
-      if(window.matchMedia('(max-width:800px)').matches){
-        location.href = 'tel:'+phone.replace(/[^0-9]/g,'');
-      } else {
-        const subject = encodeURIComponent('[문의] '+item);
-        const body = encodeURIComponent(item + '\n\n구매 희망합니다. 연락 부탁드립니다.');
-        location.href = 'mailto:'+mail+'?subject='+subject+'&body='+body;
-      }
-    }
-    function viewDetail(item){
-      alert(item + '\n\n상세 페이지는 추가 개발로 연결됩니다. 필요하시면 제가 상세 페이지 템플릿도 만들어드릴게요.');
-    }
-  </script>
 </body>
 </html>
