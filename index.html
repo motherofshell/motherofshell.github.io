@@ -16,34 +16,50 @@
     }
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Noto Sans KR', sans-serif; }
     body { background: var(--bg); color: var(--text); }
-    a { text-decoration:none; color: var(--primary); }
+
+    a { text-decoration:none; color: inherit; }
+
     header { padding:20px; text-align:center; background:#fff; box-shadow:var(--shadow); }
-    header h1 { font-size:24px; margin-bottom:5px; }
+    header h1 { font-size:26px; margin-bottom:5px; }
     header p { font-size:14px; color:var(--subtext); }
 
     .container { width:95%; max-width:1200px; margin:40px auto; }
 
-    h2 { font-size:20px; margin-bottom:15px; }
+    h2 { font-size:22px; margin-bottom:15px; }
 
     .gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:20px; }
+
     .card { background:var(--card-bg); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; }
-    .card img { width:100%; display:block; }
+    .card img { width:100%; height:200px; object-fit:cover; }
     .card-content { padding:15px; flex:1; display:flex; flex-direction:column; justify-content:space-between; }
     .card-content h3 { font-size:16px; margin-bottom:8px; }
     .card-content p { font-size:13px; color:var(--subtext); margin-bottom:12px; flex:1; }
-    .price { font-weight:bold; margin-bottom:12px; }
+    .price { font-weight:bold; margin-bottom:12px; color:var(--primary); }
+
     .buttons { display:flex; gap:10px; }
-    .buttons a { flex:1; text-align:center; padding:8px 0; border-radius:8px; font-weight:bold; font-size:14px; }
+    .buttons a { flex:1; text-align:center; padding:10px 0; border-radius:8px; font-weight:bold; font-size:14px; transition:0.3s; }
     .btn-detail { background:#eee; color:var(--text); }
+    .btn-detail:hover { background:#ddd; }
     .btn-contact { background:var(--primary); color:#fff; }
+    .btn-contact:hover { background:#014434; }
 
     .contact-info { text-align:right; font-size:14px; margin-bottom:40px; }
-    .contact-info a { margin-left:10px; }
+    .contact-info a { margin-left:10px; color:var(--primary); }
 
     .section { margin-bottom:60px; }
     .section p { margin-top:10px; font-size:14px; color:var(--subtext); line-height:1.6; }
 
     footer { padding:20px; text-align:center; font-size:12px; color:var(--subtext); }
+
+    @media(max-width:768px){
+      .card img { height:180px; }
+      .buttons a { font-size:13px; padding:8px 0; }
+    }
+    @media(max-width:480px){
+      header h1 { font-size:22px; }
+      .card img { height:150px; }
+      .buttons a { font-size:12px; padding:6px 0; }
+    }
   </style>
 </head>
 <body>
@@ -64,11 +80,11 @@
 
       <div class="gallery">
         <div class="card">
-          <img src="/c1.jpg" alt="자개 시계판">
+          <img src="c1.jpg" alt="자개 시계판 대형">
           <div class="card-content">
             <h3>자개 시계판 (대)</h3>
             <p>30년 장인이 가공한 고급 자개 시계판.</p>
-            <div class="price">원</div>
+            <div class="price">문의 필요</div>
             <div class="buttons">
               <a href="#" class="btn-detail">상세보기</a>
               <a href="tel:01099999999" class="btn-contact">연락하기</a>
@@ -77,11 +93,11 @@
         </div>
 
         <div class="card">
-          <img src="/Powder1.JPG" alt="자개 파우더 White">
+          <img src="Powder1.jpg" alt="자개 파우더 White 50g">
           <div class="card-content">
             <h3>자개 파우더 White (50g)</h3>
             <p>공예용 미세 파우더. 혼합·코팅용으로 적합합니다.</p>
-            <div class="price">원</div>
+            <div class="price">문의 필요</div>
             <div class="buttons">
               <a href="#" class="btn-detail">상세보기</a>
               <a href="tel:01099999999" class="btn-contact">연락하기</a>
@@ -90,11 +106,11 @@
         </div>
 
         <div class="card">
-          <img src="/Powder2.JPG" alt="자개 파우더 Yellow">
+          <img src="Powder2.jpg" alt="자개 파우더 Yellow 50g">
           <div class="card-content">
             <h3>자개 파우더 Yellow (50g)</h3>
             <p>공예용 미세 파우더. 혼합·코팅용으로 적합합니다.</p>
-            <div class="price">원</div>
+            <div class="price">문의 필요</div>
             <div class="buttons">
               <a href="#" class="btn-detail">상세보기</a>
               <a href="tel:01099999999" class="btn-contact">연락하기</a>
@@ -103,11 +119,11 @@
         </div>
 
         <div class="card">
-          <img src="/l2.jpg" alt="자개 조각 재료">
+          <img src="l2.jpg" alt="자개 조각 재료 믹스">
           <div class="card-content">
             <h3>자개 조각 재료 (믹스)</h3>
-            <p>DIY용 다양한 크기의 자개 조각 세트. 소량 포장.</p>
-            <div class="price">원</div>
+            <p>DIY용 다양한 크기의 자개 조각 세트. 소량,대량 포장가능</p>
+            <div class="price">문의 필요</div>
             <div class="buttons">
               <a href="#" class="btn-detail">상세보기</a>
               <a href="tel:01099999999" class="btn-contact">연락하기</a>
